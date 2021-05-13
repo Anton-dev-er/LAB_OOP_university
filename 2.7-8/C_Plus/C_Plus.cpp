@@ -20,7 +20,25 @@ int main()
 
     for (int i = 0; i < 7; i++)
     {
-        arr[i].CalculationExpressions();
+        try
+        {
+            if ((24 + arr[i].d - arr[i].c) < 0)
+            {
+                throw 0;
+            }
+            else if (arr[i].b == 0)
+            {
+                throw 1;
+            }
+            cout << "Результат" << arr[i].CalculationExpressions() << endl;
+        }
+        catch (int e)
+        {
+            if (e == 0)
+                std::cout << "Корінь повинен бути більше 0" << std::endl;
+            if (e == 1)
+                std::cout << "Division by 0." << std::endl;
+        }
     }
 
 }
